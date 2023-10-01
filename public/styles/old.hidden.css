@@ -1,0 +1,58 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+* {
+  color: #00aa00;
+}
+
+.warning {
+  color: #aa0000;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+a:has(button) {
+box-shadow: none !important;
+transform: none !important;
+}
+
+#replit-badge {
+  box-shadow: none;
+  transform: none;
+  outline: none;
+  background: #FFFFFF;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.rainbow {
+  background: linear-gradient(90.02deg, #ff0000 0.02%, #e100ff 27.09%, #00b3ff 51.04%, #00ff1e 76.56%, #ff0000 99.99%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}

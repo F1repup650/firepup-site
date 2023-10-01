@@ -1,0 +1,5 @@
+{
+  "ignore": ["public/**","views/**"],
+  "watch": ["index.js","nodemon.json","restart"],
+  "ext": "js,mjs,json"
+}

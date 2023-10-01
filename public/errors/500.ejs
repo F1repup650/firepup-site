@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FP650 - 500 Error</title>
+    <link href="https://firepup650.repl.co/style.css" rel="stylesheet" type="text/css" />
+    <link href="https://bouncecss.bookie0.repl.co/bounce.css" rel="stylesheet" type="text/css" />
+    <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/visits"></script></!-->
+    <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/500error"></script></!-->
+  </head>
+  <body>
+    <h1 class="center warning">500 Internal Server Error</h1>
+    <p class="center warning">An error has occurred on the server.</p>
+    <% if (error) { %>
+      <h2 class="center warning">Error message:</h2>
+      <pre class="center warning"><%= error.message %></pre>
+      <h2 class="center warning">Stack trace:</h2>
+      <pre class="center warning"><%= error.stack %></pre>
+    <% } %>
+    <script src="https://firepup650.repl.co/footer.js"></script>
+    <script src="https://replit.com/public/js/replit-badge.js" theme="teal" defer></script>
+    <!-- ^ Replit's badge thing !-->
+  </body>
+</html>

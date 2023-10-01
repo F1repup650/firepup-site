@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FP650 - 422 Error</title>
+    <link href="https://firepup650.repl.co/ejsstyle.css" rel="stylesheet" type="text/css" />
+    <link href="https://bouncecss.bookie0.repl.co/bounce.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <h1 class="center warning">422 Unprocessable Entity</h1>
+    <% if (typeof message !== 'undefined') { %>
+      <h2 class="center warning">Error message:</h2>
+      <p class="center warning"><%= message %></p>
+    <% } else { %>
+      <p class="center warning">The requested url did not match a valid image request format.</p>
+    <% } %>
+    <script src="https://firepup650.repl.co/footer.js"></script>
+    <script src="https://replit.com/public/js/replit-badge.js" theme="teal" defer></script>
+    <!-- ^ Replit's badge thing !-->
+  </body>
+</html>

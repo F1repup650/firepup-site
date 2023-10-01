@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FP650 - DVD Screensaver</title>
+    <link href="cheese.css" rel="stylesheet" type="text/css" />
+    <link href="https://bouncecss.bookie0.repl.co/bounce.css" rel="stylesheet" type="text/css" />
+  <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/visits"></script></!-->
+  <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/dvdscreensaver"></script></!-->
+    <div id="preloads">
+      <link rel="preload" href="/images/dvd-logo/norm.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/light.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/B.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/C.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/G.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/P.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/R.png" as="image">
+      <link rel="preload" href="/images/dvd-logo/Y.png" as="image">
+    </div>
+  </head>
+  <body>
+    <h5 hidden id='Maintenance' class="center"></h5>
+    <input class="center" type="checkbox" name="checkbox1" id="check" onclick="return logoTheme();"></input>
+    <label for="check"><span class="center force-color">Toggle logo theme</span></label>
+    <input class="center" type="checkbox" name="checkbox1" id="check2" onclick="return logoRainbow();"></input>
+    <label for="check2"><span class="center force-color">Toggle rainbow theme</span></label>
+    <img alt="DVD logo" id="logo" src="/images/dvd-logo/norm.png" style="position: fixed; z-index: -1;">
+    <script>
+    function logoTheme() {  
+      var checkbox = document.getElementById("check");
+      var checkbox2 = document.getElementById("check2");
+      if (checkbox2.checked) {
+        checkbox2.checked = false;
+      }
+      if(checkbox.checked) {
+        document.getElementById("logo").src = "/images/dvd-logo/light.png"
+        document.getElementById("logo").alt = "DVD logo light"
+      } else {
+        document.getElementById("logo").src = "/images/dvd-logo/norm.png"
+        document.getElementById("logo").alt = "DVD logo"
+      }
+    }
+    function logoRainbow() {
+      var checkbox2 = document.getElementById("check");
+      var checkbox = document.getElementById("check2");
+      if (checkbox2.checked) {
+        checkbox2.checked = false;
+      }
+      if(!checkbox.checked) {
+        document.getElementById("logo").src = "/images/dvd-logo/norm.png"
+        document.getElementById("logo").alt = "DVD logo"
+      }
+    }
+    var vX = 2;
+    var vY = 2; 
+    var vC = 0;
+    var colors = ["B","C","G","P","R","Y"]
+    function move() {
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+      var checkbox = document.getElementById("check2");
+      var elem = document.getElementById("logo");
+      if(!elem.style.left) elem.style.left = width / 2 + "px";
+      if(!elem.style.top) elem.style.top = height / 2 + "px";
+      var oldX = parseInt(elem.style.left.slice(0, -2));
+      var oldY = parseInt(elem.style.top.slice(0, -2));
+      var oldvX = vX;
+      var oldvY = vY;
+      var oldvC = vC;
+      if(oldX < 0) vX = Math.abs(vX);
+      if(oldY < 0) vY = Math.abs(vY);
+      if(oldX + 150 > width) vX = -Math.abs(vX);
+      if(oldY + 150 > height) vY = -Math.abs(vY);
+      if((oldvY != vY || oldvX != vX)) {
+        vC+=1;
+        if (vC > 5) vC = 0;
+      }
+      if (oldvC != vC && checkbox.checked) {
+        document.getElementById("logo").src = "/images/dvd-logo/"+colors[vC]+".png";
+        document.getElementById("logo").alt = "DVD logo "+colors[vC];
+      }
+      elem.style.left = (oldX + vX) + "px";
+      elem.style.top = (oldY + vY) + "px";
+      setTimeout(move, 1000 / 60);
+    }
+    move();
+    </script>
+    <script src="footer.js"></script>
+    <script src="https://replit.com/public/js/replit-badge.js" theme="teal" defer></script>
+    <!-- ^ Replit's badge thing !-->
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FP650 - Cheese</title>
+    <link href="cheese.css" rel="stylesheet" type="text/css" />
+    <link href="https://bouncecss.bookie0.repl.co/bounce.css" rel="stylesheet" type="text/css" />
+  <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/visits"></script></!-->
+  <!--><script async src="https://api.countapi.xyz/hit/firepup650.repl.co/cheese"></script></!-->
+    <div id="preloads">
+      <link rel="preload" href="/images/cheese.png" as="image">
+    </div>
+  </head>
+  <body>
+    <h5 hidden id='Maintenance' class="center"></h5>
+    <p class="center rainbow" id="bc"></p>
+    <img alt="Bouncing cheese" id="cheese" src="/images/cheese.png" style="position: fixed; z-index: -1;">
+    <script>
+    var vX = 2;
+    var ovX = 2;
+    var ovY = 2;
+    var vY = 2; 
+    var rot = 0;
+
+    function move() {
+      var width = window.innerWidth;
+      var height = window.innerHeight;
+
+      var elem = document.getElementById("cheese");
+      if(!elem.style.left) elem.style.left = width / 2 + "px";
+      if(!elem.style.top) elem.style.top = height / 2 + "px";
+
+      var oldX = parseInt(elem.style.left.slice(0, -2));
+      var oldY = parseInt(elem.style.top.slice(0, -2));
+
+      if(oldX < 0) vX = Math.abs(vX);
+      if(oldY < 0) vY = Math.abs(vY);
+      if(oldX + 150 > width) vX = -Math.abs(vX);
+      if(oldY + 150 > height) vY = -Math.abs(vY);
+      if(!(ovX == vX || ovY == ovY)) {ovX=vX; ovY=vY; }
+
+      elem.style.left = (oldX + vX) + "px";
+      elem.style.top = (oldY + vY) + "px";
+
+      rot += 1;
+      elem.style.transform = "rotate(" + rot + "deg)";
+ 
+      setTimeout(move, 1000 / 60);
+    }
+
+    move();
+    </script>
+    <script src="footer.js"></script>
+    <script src="https://replit.com/public/js/replit-badge.js" theme="teal" defer></script>
+    <!-- ^ Replit's badge thing !-->
+  </body>
+</html>
