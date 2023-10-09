@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('/fonts/SourceCodePro.ttf');
+}
+
 html, body {
   height: 100%;
   width: 100%;
@@ -37,6 +42,10 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+
+a, button, .rainbow, .force-color, span, label {
+    font-family: 'Source Code Pro', monospace !important;
 }
 
 a:has(button) {
