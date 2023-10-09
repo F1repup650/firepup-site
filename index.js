@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-const express = require("express"), http = require('http'), UAParser = require('ua-parser-js'), fs = require('fs'), path = require("path"), app = express(), directory = __dirname, htmlfileloc = directory + "/public/pages", rawfileloc = directory + "/public/raw", cssfileloc = directory + "/public/scripts", jsfileloc = directory + "/public/styles", iconfileloc = directory + "/public/icons", errorfileloc = directory + "/public/errors", dynamfileloc = directory + "/public/dynamic", err404loc = errorfileloc + "/404.ejs", err422loc = errorfileloc + "/422.ejs", err403loc = errorfileloc + "/403.ejs", err500loc = errorfileloc + "/500.ejs", conloc = htmlfileloc + "/construction.html", port = 8080, validImageTypes = ['.jpg', '.jpeg', '.png', '.gif'], imgsrv = "https://image-hosting.firepup650.repl.co", axios = require('axios'), und = undefined, users = ["youngchief","coderelijah","bigminiboss","pikachub2005","jayayseaohbee14","9pfs"], aliases = {"smallmaxworker":"bigminiboss","9pfs1":"9pfs"};
-var tracks = und, datas = und;
-app.use(require("expressjs-remembering-doomsdaybear"))
-=======
 const express = require("express"), http = require('http'), UAParser = require('ua-parser-js'), fs = require('fs'), path = require("path"), app = express(), directory = __dirname, htmlfileloc = directory + "/public/pages", rawfileloc = directory + "/public/raw", cssfileloc = directory + "/public/scripts", jsfileloc = directory + "/public/styles", iconfileloc = directory + "/public/icons", errorfileloc = directory + "/public/errors", dynamfileloc = directory + "/public/dynamic", err404loc = errorfileloc + "/404.ejs", err422loc = errorfileloc + "/422.ejs", err403loc = errorfileloc + "/403.ejs", err500loc = errorfileloc + "/500.ejs", conloc = htmlfileloc + "/construction.html", port = 8080, validImageTypes = ['.jpg', '.jpeg', '.png', '.gif'], imgsrv = "https://image-hosting.firepup650.repl.co", axios = require('axios'), und = undefined, users = ["youngchief","coderelijah","bigminiboss","pikachub2005","jayayseaohbee14","9pfs","omegaorbitals"], aliases = {"smallmaxworker":"bigminiboss","9pfs1":"9pfs"}, exec = require('child_process').exec;
 var tracks = und, datas = und;
 //app.use(require("expressjs-remembering-doomsdaybear"))
->>>>>>> 24c184c (Init)
 app.set('trust proxy', 1)
 const cookieCheck = (req, res, next) => {
   const options = {
@@ -168,8 +162,6 @@ function secondsToMinutes(seconds) {
     return minutes + ":" + leftoverSeconds + "0";
   }
 };
-<<<<<<< HEAD
-=======
 function execute(command, callback){
     exec(command, function(error, stdout, stderr){ callback(stdout); });
 };
@@ -183,7 +175,6 @@ function format(seconds){
 
   return pad(hours) + ':' + pad(minutes) + ':' + pad(seconds);
 }
->>>>>>> 24c184c (Init)
 app.use(cookieCheck);
 app.use(express.static(cssfileloc));
 app.use(express.static(jsfileloc));
@@ -272,14 +263,6 @@ app.get('/about-you', function(req, res) {
   });
 });
 app.get("/server-info", (req, res) => {
-<<<<<<< HEAD
-  let uptime = (Date.now() - startTime) / 1000;
-  let author = "Firepup650";
-  res.render(dynamfileloc + '/server-info.ejs', {
-    author: author,
-    uptime: uptime,
-    images: totalPages
-=======
   execute("uptime -p", (sysup) => {
     let uptime = process.uptime();
     let author = "Firepup650";
@@ -289,7 +272,6 @@ app.get("/server-info", (req, res) => {
       system: sysup,
       images: totalPages
     })
->>>>>>> 24c184c (Init)
   });
 });
 // Youngchief
@@ -544,8 +526,4 @@ app.on("error", error => {
     default:
       throw error;
   }
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 24c184c (Init)
