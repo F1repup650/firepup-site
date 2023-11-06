@@ -262,6 +262,7 @@ app.get('/about-you', function(req, res) {
     deviceVendor: deviceVendor
   });
 });
+app.get("/uptime", (req, res) => res.redirect("/server-info"));
 app.get("/server-info", (req, res) => {
   execute("uptime -p", (sysup) => {
     let uptime = process.uptime();
